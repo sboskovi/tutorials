@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <style>
+      .box {
+        margin: 10px 25px 5px 5;
+        padding: 5px 30px 70px 25px;
+        height: 300px;
+        width: 50%;
+        /* visibility: hidden; */
+      }
+      .box2 {
+        margin: 10px 25px 5px 100px;
+        padding: 5px 30px 70px 25px;
+      }
+      .box, .box2 {
+        color: red;
+        border: 2px dashed blue;
+        display: inline-block;
+        vertical-align: middle;
+        text-align: center;
+        /* box-sizing: border-box; */
+      }
+      .box2:hover {
+        /* color: green; */
+        border: 2px solid green;
+      }
+      .box3 {
+        border: 2px dashed blue;
+        padding: 10px 30px;
+        width: 250px;
+        margin: 50px 0 0 500px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="box">
+        I'm a box!
+        <div class="box3">
+          I'm a box in the box!
+        </div>
+      </div>
+      <div class="box2">
+        I'm a box 2!
+      </div>
+    </main>
+  </body>
+</html>

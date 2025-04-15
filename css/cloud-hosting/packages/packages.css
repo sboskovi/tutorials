@@ -1,0 +1,116 @@
+main {
+  padding-top: 1.5rem;
+}
+
+.background {
+  background-image: url("../images/plans-background.jpg");
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: -1;
+}
+
+.plan {
+  border: 2px solid #319b4d;
+  background-color: rgba(174, 253, 195, 0.95);
+  margin-top: 1.5rem;
+  width: 60%;
+  padding: 1.2rem;
+  border-left: none;
+  position: relative;
+  z-index: 0;
+}
+
+.plan .plan__banner {
+  position: absolute;
+  top: 1.2rem;
+  right: 3rem;
+  color: white;
+  background: red;
+  border-radius: 8px;
+  padding: 8px;
+  margin: 0;
+  text-align: right;
+}
+
+.plan:hover {
+  border: 2px solid red;
+  border-left: 0;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.plan a {
+  text-decoration: none;
+  /* Fills the entire parent */
+  display: block;
+}
+
+.plan h1 {
+  color: black;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.plan h2 {
+  color: rgb(158, 149, 149);
+}
+
+.plan p {
+  color: black;
+  background-color: white;
+  padding: 0.5rem;
+  border: 1px solid #319b4d;
+}
+
+.clearfix {
+  /* fix za float*/
+  clear: both;
+}
+
+
+.plan--premium,
+.plan--premium a,
+.plan--premium h1,
+.plan--premium h2 {
+  color: white;
+  background-color: #319b4d;
+}
+
+.free {
+  /* float se generalno ne koristi jer postoji bolji nacin da se pozicionraju elementi*/
+  float: right;
+  border-right: none;
+  border-left: 2px solid #319b4d;
+  text-align: right;
+}
+
+.free:hover {
+  border: 2px solid red;
+  border-right: none;
+}
+
+@media(min-width: 40rem) {
+  main {
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(min-width: 1500px) {
+  .plan {
+    border-left: 2px solid #319b4d;
+  }
+
+  .free {
+    border-right: 2px solid #319b4d;
+  }
+
+  .plan:hover {
+    border-left: 2px solid red;
+  }
+
+  .free:hover {
+    border-right: 2px solid red;
+  }
+}
