@@ -1,0 +1,1 @@
+Course directory follows implementations of course by Maximilian Schwarzmuller

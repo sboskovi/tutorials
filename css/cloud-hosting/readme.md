@@ -19,6 +19,8 @@ Inline elementi: `<a>, <span>, <img>`
 
 
 ### Position
+The **viewport** is the user's visible area of a web page. Dio stranice koju korisnik vidi.
+
 **Pozicioni kontekst** se moze promijeniti ako se roditeljskoj komponenti setuje position razlicit od `static`.
 **Top**, **right**, **bottom** i **left** odredjuje pozicioniranje u odnosu na pozicioni kontekst.
 Za `fixed` i `absolute` position elemetni se izbacuju iz document flow-a. 
@@ -80,6 +82,7 @@ flex-direction: row  | flex-direction: column
 v                      v
 CROSS axis             MAIN axis
 ```
+
 ```
 flex-direction: row / column; row-reverse / column-reverse
 flex-wrap: nowrap / wrap;
@@ -111,13 +114,17 @@ grid-template-columns: repeat(4, [col-start] 25% [col-end]);
 grid-column: col-start 2 / col-end 2;
 
 ### named tempalate areas
-// Moze da se koristi kao zamjena za pojedinacni span u child-ovima
-// Mora da definise template koji se pravi preko `grid-template-*`. U ovom slucaju: 4 kolone i 3 reda. Header zauzima sve 4 kolone, side i main po 2 kolone i footer zauzima 4.
-// . moze da se koristi da kolona ne ostane prazna. Npr zamijenimo side sa: . .
+Moze da se koristi kao zamjena za pojedinacni span u child-ovima
+
+Mora da definise template koji se pravi preko `grid-template-*`. U ovom slucaju: 4 kolone i 3 reda. Header zauzima sve 4 kolone, side i main po 2 kolone i footer zauzima 4.
+
+`.` moze da se koristi da kolona ne ostane prazna. Npr zamijenimo side sa: . .
+```
 grid-template-areas: "header header header header"
 					 "side side main main" 
 					 "footer footer footer footer";
-// U child-u:
+```
+U child-u:
 grid-area: header;
 
 
@@ -152,7 +159,7 @@ grid-template-columns: repeat(auto-fit, 10rem);
 
 
 
-## Grid elements (children)
+## Grid elements (CHILDREN)
 grid-column-start: 1;
 grid-column-end: span 2;
 
