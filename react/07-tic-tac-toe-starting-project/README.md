@@ -1,0 +1,2 @@
+# State management
+Kada se promijeni state u nekoj komponenti, funkcija (komponenta) se ponovo izvrsava. Zato bi bilo lose da se state za Player name cuva u roditeljskoj komponenti i da se azurira na svaki keystroke kada se azurira ime igraca. Zbog toga bi se citav GameBoard ponovo izvrsavao i iscrtavao.
