@@ -6,6 +6,9 @@ import random
 import re
 import sys
 
+# Zadatak: dobijes listu vremenskih intervala i trebas da spojis sve intervale koji se preklapaju
+# npr: input = [[1,2],[2,3],[6,11],[7,7]] -> output = [[1,3],[6,11]]
+# intevali nisu sortirani
 
 #
 # Complete the 'getMergedIntervals' function below.
@@ -15,9 +18,9 @@ import sys
 #
 
 # 1. Problem:
-# Pozurio si da das rjesenje jer ga nisi odmah vidio - pa si predlozio hash map-u, tu te intervjuer ispravio - kako ces da cuvas interval?
+# Pozurio si da das rjesenje jer ga nisi odmah vidio - pa si predlozio hash map-u, tu te intervjuer ispravio - kako ces da cuvas interval? Sta je kljuc sta je vrijednost?
 # 2. Problem:
-# Nisi se vratio na postavku zadatka - intervjuer ti je predlozio da preispitas da li ima tamo nesto sto bi moglo da pomogne?
+# Nisi se vratio na postavku zadatka - intervjuer ti je predlozio da preispitas da li ima tamo nesto sto bi moglo da pomogne? - stoji da treba da bude sortirano u postavci
 # 3. Problem:
 # Sto ti nije palo na pamet da sortiras niz nizova - nisi se sam sjetio toga
 # Nisam siguran da li sam sam procitao tamo ili mi je on sugresao da treba da bude sortirano

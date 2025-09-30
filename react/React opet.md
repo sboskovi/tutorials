@@ -3,12 +3,13 @@
 ## Kljucni koncepti
 - ===
 - !==
-- komponente
+- Components
+- Komponente su organizovane u tree (stablo). Key-evi identifikuju komponente u stablu, ako se promjeni key izmedju re render-a, react ce da smatra da je to nova komponenta. Zato nije dobra ideja imati random() vrijednosit za kljuceve
 - props
-- state
-- hooks
+- state - koristi se za cuvanje stanja komponente - svaka promjena state-a izaziva re-render. Treba cuvti samo neophodne podatke. Ono sto moze da se izracuna u funkciji (tijelu komponente) racunati u funkciji. 
+- hooks - useState, useEffect.
 - pure components:
-  - Minds its own business (no side effects?)
+  - Minds its own business (no side effects)
   - Same inputs, same output (idempotency)
 - Skracenica za ternani op: `ternary ? ternary : null -> ternary ?? null`
 - Array.slice lets you copy an array or a part of it.
@@ -25,7 +26,7 @@ localStorage.clear();
 
 ## key prop
 - Dodjeljivanje <li> elementima - elementi liste
-- Dodjeljivanje React komponentama - da React zna koja je komponent-a u UI tree-u, zbog mount-ovanja i rendereovanja i cuvanja state-a i reset state-a
+- Dodjeljivanje React komponentama - da React zna koja je komponenta u UI tree-u, zbog mount-ovanja i render-ovanja i cuvanja state-a i reset state-a
 - Mozes **istoj** komponenti da proslijedis **razlicit kljuc** da joj **reset-ujes state** - bolje tako nego useEffect
 
 
