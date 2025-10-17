@@ -1,0 +1,27 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  padding: 1rem;
+}
+
+.main-header__list {
+  list-style: none;
+  display: flex;
+}
+
+.main-header__item {
+  margin: 0 1rem;
+}
+
+.main-header__item a {
+  text-decoration: none;
+  color: black;
+}
+
+.main-header__item a:active,
+.main-header__item a:hover {
+  color: #3e00a1;
+}
