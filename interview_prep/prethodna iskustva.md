@@ -14,9 +14,14 @@ Radili smo za DL, oni prave docking statione. Radili smo na softveru za build-ov
 ### Tehnologije
 - NextJs, React i NodeJs, MySQL i Sequelize
 
-# Opis aplikacije
-- Klijenti ili oni sami dodju i konfigurisu firmver kroz aplikaciju (old FWWB)
-- 
+### Opis aplikacije
+- Klijenti ili oni sami dodju i konfigurisu **firmware** kroz aplikaciju (old FWWB)
+- Selektuju koji chip hoce, koje funkcionalsti hoce, a aplikacija im posalje **zip** fajl na mail
+- Problem je bio sto je za svaki cip web aplikacija izgledala drugacije i ponasala se drugacije.
+- Radjeno u **PERL** i vanila **JS**
+- Backend **python**
+- Problem jer je taj frontend metastizirao u nesto sto vise nije moglo da se odrzava
+
 - Izbildovani image-i, konfiugrisu se i generisu paketi koji se salju vendorima
 - Check-outovanje citavog repozitorijuma na odredjenu granu, za odredjenu verziju za odredjeni chip i generisu se image-i
 - Prvo kondezovati citav repozitorijum na jednu granu
@@ -37,3 +42,13 @@ Aplikacija za prodaju Kaspersky licenci direktno jednom malom vednoru.
 ### Opis aplikacije
 - Proizvodi - SKU-ovi, Promo Kodovi
 - 
+
+
+## Maersk
+Aplikacija za screening rizicnih entiteta da bi se osigurao complience.
+
+### Tehnologije
+- Python, Java, Kafka, PostgreSQL, 
+
+### Opis aplikacije
+- Mikroservisi za preuzimanje, parsiranje i obradu Risk Podataka i klijentskih podataka
