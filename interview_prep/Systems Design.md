@@ -85,6 +85,7 @@ Durable component stored in memory. Producer-i salju poruke, a consumeri uzimaju
 - (A)vailability means that the system is always available to the users.
 - (P)artition tolerance means that in case of a fault in the network or communication, the system will still work.
 - Nemoguce je postici sva 3 odjednom, 2 max - trade offs
+- (CA) system ne moze da postoji, jer svi sitemi moraju da tolerisu (P)artition
 
 ## Web authentication and basic security
 ### Cookies
@@ -110,11 +111,11 @@ Setting the **"Secure"** flag on a cookie tells the browser only to include it i
 ## Indexing
 Materijal: https://youtu.be/BHCSL_ZifI0?feature=shared
 
-Baze rade tako sto podijele sve podatke u stranice, kada traze odredjenu vrijednost u bazi one dovlace sve stranice jednu po jednu i provjeravaju da li se vrijednost nalazi na toj stranici. Indexi u sustini cuvaju stranicu u kojoj se nalaze podatak tako da ne mora da se pretrazuje svaka stranica.
+Baze rade tako sto podijele sve podatke u **stranice**, kada traze odredjenu vrijednost u bazi one dovlace sve stranice **jednu po jednu** i provjeravaju da li se vrijednost nalazi na toj stranici. **Indexi** u sustini cuvaju **stranicu u kojoj se nalazi podatak** tako da ne mora da se pretrazuje svaka stranica.
 
 Tipovi indexa:
 - B trees - samobalansirajuce drvo. Optimizovano za rad sa diskom i obicno se koristi ovaj tip indexa
-- Inverted index - rad sa string-ovima, index na string-u ce da bude formiran po redu sortiranja stringa, ako radimo pretrazivanje po prefix-u, npr. `LIKE "prize%"` onda je B tree dovoljan. Problem je kada radis full text search npr `LIKE %prize%`, onda nam sortiranje ne pomaze i mora da se radi pretrazivanje stranice po stranice. Medjutim, inverted index je rjesenje - napravi se index svih rijeci, tako da mozemo da pretrazujemo
+- Inverted index - rad sa string-ovima, index na string-u ce da bude formiran po redu sortiranja stringa, ako radimo pretrazivanje po prefix-u, npr. `LIKE "prize%"` onda je B tree dovoljan. Problem je kada radis full text search npr `LIKE %prize%`, onda nam sortiranje ne pomaze i mora da se radi pretrazivanje stranice po stranice. Medjutim, inverted index je rjesenje - napravi se index svih string-ova, tako da mozemo da pretrazujemo
 - Geospatial index
 
 Ostalo:
@@ -140,7 +141,7 @@ Ostalo:
 - otpornije na fail
 
 - Conflict resolution for concurrent writes
-  -Keeping the update with the largest client timestamp.
+  - Keeping the update with the largest client timestamp.
   - Sticky routing - writes from same client/index go to the same leader.
   - Keeping and returning all the updates.
 
@@ -163,7 +164,7 @@ Ostalo:
 - Identifikuj odnose izmedju objekata (ponasanje)
 ![tweeter functinal table](images/tweeter_functional_table.png)
 #### Access patterns
-kako se pristupa ovim objektima? Na osnovu ovoga se definise kako ce se podaci cuvati: **Given [object A], get all related [object B]**
+Kako se pristupa ovim objektima? Na osnovu ovoga se definise kako ce se podaci cuvati: **Given [object A], get all related [object B]**
 
 Given an account:
 - Get all of its followers. (Account → Account)
@@ -216,3 +217,24 @@ Konacna racunica:
 - 1k writes/minute with an average size of 1MB = 1k * 1MB = 1GB/m
 
 Sto znaci da moramo da cuvamo GB podataka u minuti
+
+# Cassandra
+- NoSQL - nema join-ova
+- **Query driven** - tabele se denormalizuju tako da budu optimizovane za query
+- Consistency - tunable **per query**, ali u principu najbolje se ponasa za 
+  - One
+  - Quorum
+  - All
+### Scalability
+- **Primary key**: {Partition key}:{Clustering key}
+  - Partition key - Which node stores the data
+  - Clustering key - optional, kako se podaci sortiraju u node-u
+- Svi node-ovi jednki, koriste **Gossip protocol** za synhronizaciju
+- **Consistent hashing** i replication
+### When to use
+- High write trhoughput
+- **Write >> Read** (write heavy systems)
+- Predictible, limit query pattern
+### When not to use
+- Need flexible queries
+- Need strong consistency
