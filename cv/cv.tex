@@ -1,0 +1,164 @@
+%% start of file `template.tex'.
+%% Copyright 2006-2013 Xavier Danaux (xdanaux@gmail.com).
+%
+% This work may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License version 1.3c,
+% available at http://www.latex-project.org/lppl/.
+
+
+\documentclass[11pt,a4paper,roman]{moderncv}        % possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
+
+% modern themes
+\moderncvstyle{banking}                            % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue}                                % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+%\renewcommand{\familydefault}{\sfdefault}         % to set the default font; use '\sfdefault' for the default sans serif font, '\rmdefault' for the default roman one, or any tex font name
+\nopagenumbers{}                                  % uncomment to suppress automatic page numbering for CVs longer than one page
+
+% character encoding
+\usepackage[utf8]{inputenc}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage[scale=0.8]{geometry}
+\usepackage{multicol}
+\usepackage{import}
+\usepackage{tikz}
+
+\name{Stefan}{Bošković}
+
+\newcommand*{\customcventry}[7][.25em]{
+  \begin{tabular}{@{}l} 
+    {\bfseries #4}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\bfseries #5}
+  \end{tabular} \\
+  \begin{tabular}{@{}l} 
+    {\itshape #3}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #2}
+  \end{tabular}
+  \ifx&#7&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#7%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand*{\customcvproject}[4][.25em]{
+%   \vfill\noindent
+  \begin{tabular}{@{}l} 
+    {\bfseries #2}
+  \end{tabular}
+  \hfill% move it to the right
+  \begin{tabular}{l@{}}
+     {\itshape #3}
+  \end{tabular}
+  \ifx&#4&%
+  \else{\\%
+    \begin{minipage}{\maincolumnwidth}%
+      \small#4%
+    \end{minipage}}\fi%
+  \par\addvspace{#1}}
+
+\newcommand{\ExternalLink}{%
+    \tikz[x=1.2ex, y=1.2ex, baseline=-0.05ex]{% 
+        \begin{scope}[x=1ex, y=1ex]
+            \clip (-0.1,-0.1) 
+                --++ (-0, 1.2) 
+                --++ (0.6, 0) 
+                --++ (0, -0.6) 
+                --++ (0.6, 0) 
+                --++ (0, -1);
+            \path[draw, 
+                line width = 0.5, 
+                rounded corners=0.5] 
+                (0,0) rectangle (1,1);
+        \end{scope}
+        \path[draw, line width = 0.5] (0.5, 0.5) 
+            -- (1, 1);
+        \path[draw, line width = 0.5] (0.6, 1) 
+            -- (1, 1) -- (1, 0.6);
+        }
+    }
+
+\setlength{\tabcolsep}{8pt}
+
+\begin{document}
+\makecvtitle
+\vspace*{-20mm}
+
+\begin{center}
+\begin{tabular}{c c c c}
+\\\\ \faLinkedin\enspace \href{https://www.linkedin.com/in/stefan-bo%C5%A1kovi%C4%87-2aa6132b8/}{LinkedIn \ExternalLink} & \faEnvelope\enspace boskovicstefan95@gmail.com & \faMobile\enspace +381 654675669  
+\end{tabular}
+
+\end{center}
+
+\section{BASIC INFORMATION}
+\textbf{Date of birth:} 22.04.1995. \\
+\textbf{Languages:} Serbian (native), English (fluent)
+
+\section{EDUCATION}
+
+{\customcventry{October 2014 -- September 2022}{Software Engineering department}{School of Electrical Engineering}{University of Belgrade, Serbia}{}{}}
+
+\section{WORK EXPERIENCE}
+{\customcventry{July 2019 -- Present}{Software engineer}{Endava}{Belgrade}{}{\begin{itemize}
+    \item Went through all development phases of software development, both form ground up and improving and maintaining products that are in production for years. Worked on performance optimizations, mentoring junior developers and optimizing solutions for best user experience.
+\end{itemize}}}
+
+\section{PROJECTS}
+
+{\customcvproject{Shipment screening application}{07/2023 - Present}
+  {\begin{itemize}
+    \item Microservice based system used for verification of shipping company's customers against sanctioned entities to ensure legal compliance. (Java, Spring, Python, Apache Kafka, PostgreSQL)
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Company finance application}{06/2023 - 02/2024}
+  {\begin{itemize}
+    \item Web application used for gathering financial information about public companies from relevant government and banking sources. (Python, Django, PostgreSQL, Angular)
+  \end{itemize}
+  }
+}
+
+
+{\customcvproject{Firmware configuration designer}{07/2021 - 07/2023}
+  {\begin{itemize}
+    \item Web application used to configure firmware. Look and behavior of web application itself is configurable through configuration page and set of rules which user can define. (NextJs, MySQL, Sequelize, Docker, Jenkins)
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Software license purchasing application}{01/2021 - 08/2021}
+  {\begin{itemize}
+    \item Web application used for purchasing antivirus software licenses for a retailer from antivirus software manufacturer. (Angular, Node.js, MySQL, Docker, Google Cloud)
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Proximity over WIFI application}{06/2020 - 01/2021}
+  {\begin{itemize}
+    \item Desktop application which utilizes WIFI and Bluetooth to determine distance to a device and connect to it if certain criteria are met. (C++, C\#, Shell scripting)
+  \end{itemize}
+  }
+}
+
+{\customcvproject{Product management application}{07/2019 - 06/2020}
+  {\begin{itemize}
+    \item Information system for managing products. Worked on backend and adjusting exsiting infrastructure to use new system. (Python, Django, MySQL, Jenkins)
+  \end{itemize}
+  }
+}
+
+\section{HOBBIES \& INTERESTS}
+ Besides programming, I enjoy reading books and playing basketball. Also, I'm member of astronomy club and I enjoy learning about cosmos and exploring the night sky.
+
+\end{document}
+
+
+%% end of file `template.tex'.
